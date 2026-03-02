@@ -56,7 +56,7 @@ export default async function CoursePage({
         />
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
-       <button  className="absolute top-4 left-4 z-10"> 
+       <button  className="absolute md:top-4 md:left-4 -top-4 -left-4 z-10"> 
         <Link href="/" className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-black text-sm font-medium rounded-full mt-22 ms-10">
              <ArrowLeft className="w-4 h-4 inline-block me-1" />
              Back to Home

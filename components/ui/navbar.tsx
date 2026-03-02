@@ -147,6 +147,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       <AnimatePresence>
+        
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -154,6 +155,7 @@ export const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden overflow-hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl border-t border-gray-200 dark:border-white/10"
           >
+            
             <div className="flex flex-col p-8 gap-6">
               {navLinks.map((link, i) => (
                 <motion.div
@@ -180,6 +182,30 @@ export const Navbar = () => {
                   Enroll Now
                 </Link>
               </motion.div>
+               <motion.button
+                onClick={() => setTheme(isDark ? "light" : "dark")}
+                className="w-10 h-10 flex items-center justify-center rounded-full ms-32 md:ms-0 bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/20 overflow-hidden relative"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label="Toggle theme"
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={isDark ? "moon" : "sun"}
+                    initial={{ y: 20, opacity: 0, rotate: -90 }}
+                    animate={{ y: 0, opacity: 1, rotate: 0 }}
+                    exit={{ y: -20, opacity: 0, rotate: 90 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    {isDark ? (
+                      <Moon className="w-5 h-5 text-white" />
+                    ) : (
+                      <Sun className="w-5 h-5 text-gray-900" />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </motion.button>
+
             </div>
           </motion.div>
         )}
